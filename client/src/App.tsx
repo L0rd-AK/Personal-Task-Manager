@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Board from './pages/Board';
+import Analytics from './pages/Analytics';
+import Notes from './pages/Notes';
 import Login from './components/Login';
 import { useAuthStore } from './stores/authStore';
 
@@ -80,6 +82,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Board />} />
               <Route path="/board" element={<Board />} />
+              <Route path="/analytics" element={<Analytics />} />
+              <Route path="/notes" element={<Notes />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           )}

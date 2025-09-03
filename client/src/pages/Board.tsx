@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../App';
 import { useTaskStore } from '../stores/taskStore';
 import { useSocketStore } from '../stores/socketStore';
@@ -11,6 +12,7 @@ import { Task } from '../types/Task';
 import toast from 'react-hot-toast';
 
 const Board: React.FC = () => {
+  const navigate = useNavigate();
   const authContext = useContext(AuthContext);
   
   // Zustand stores
@@ -188,10 +190,10 @@ const Board: React.FC = () => {
         }
         break;
       case 'view-analytics':
-        toast('Analytics view coming soon!', { icon: '📊' });
+        navigate('/analytics');
         break;
       case 'view-notes':
-        toast('Notes view coming soon!', { icon: '📝' });
+        navigate('/notes');
         break;
       default:
         toast(`Action: ${action}`, { icon: '⚡' });
